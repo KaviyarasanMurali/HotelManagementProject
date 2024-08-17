@@ -1,0 +1,478 @@
+package project;
+
+import java.util.*;
+
+public class projectOops {
+	static Scanner s1=new Scanner(System.in);
+	private String s;
+	private String pass;
+	private long p;
+	String mk[]=new String[10];
+	String mk1[]=new String[10];
+	long mk2[]=new long[10];
+	int l=0,r=0,t=0;
+ public int length(long ph) {
+	int c=0;
+	 while(ph>0) {
+		 ph=ph/10;
+		 c++;
+	 }
+	 return c;
+ }
+ public void ACC(){
+		
+		 System.out.print("Enter Name :"); 
+		 s=s1.next();
+		 mk[l++]=s;
+		 int i=3,c1=0,c2=0,c3=0;
+		 while(i>0) {	 
+			
+		 System.out.print("Enter PassWord :");
+		pass=s1.next();
+		 for(int j=0; j<pass.length(); j++) {
+			// Scanner s1=new Scanner(System.in);
+		 if(pass.charAt(j)>='a'&&pass.charAt(j)<='z'||pass.charAt(j)>='A'&&pass.charAt(j)<='Z') {
+			c1++;
+		 }
+		 else if(pass.charAt(j)>='0'&&pass.charAt(j)<='9') {
+			 c2++;
+		 }
+		 else{
+			 c3++;
+		 }
+		 }
+		 if(c1>0&&c2>0&&c3>0&&pass.length()>=10) {
+			
+			 mk1[r++]=pass;
+		  i=0;
+		 }else {
+			 System.err.println("Incorrect PassWord Sequence PassWord must be a Sequence of Atleast one Number,one Alphabet and one Special Character");
+		 }
+		 }
+		 int j=3;
+		 while(j>0){
+		
+		 
+		System.out.print("Enter Phone Number :");
+		try {
+		  p =s1.nextLong();
+		 if(length(p)==10) {
+			 mk2[t++]=p;
+          j=0;
+		}else {
+			System.err.println("insufficient PhoneNumber Length");
+		}
+		 }catch(Exception e) {
+			 System.err.println("Invalid InputDataType");
+				System.out.println();
+				s1 .next();
+		 }
+		 
+		 }
+		 System.out.println();
+		 System.out.println("________________________________New Account Created SuccessFully________________________________");
+		 System.out.println();
+	 }
+	public void login() {
+		//s=s1.next();
+		 int i=3;
+		 int j=0;
+		 while(i>0) {//j=0,
+			 int u1=2;
+			 String s4="";
+			 while(u1>0) {
+				 int k4=0;
+			 System.out.print("Enter Name :");
+			 String s3=s1.next();
+			
+				while(k4<mk.length) {
+			try {		
+			if(mk[k4].equals(s3)){
+				j=k4;
+				s4=s4+s3;
+				k4=mk.length;
+				u1=0;
+			}
+			else {
+				k4++;
+				u1=0;
+			}
+			}catch(Exception e) {
+				k4=mk.length;
+				 System.out.println();
+				
+			}
+				}
+		}
+		
+		if(mk[j].equals(s4)) {
+		System.out.print("Enter PassWord :");
+		String s2=s1.next();
+		
+		 if(mk1[j].equals(s2)) {
+			 System.out.print("Enter Phone Number :");
+				Long p1 =s1.nextLong();
+		 
+		 if(mk2[j]==p1) {
+		      i=0;
+		     
+			 } else {
+				 int i3=2;
+				 while(i3>0) {
+				 System.err.println("Wrong PhoneNumber");
+				 System.out.print("if u forget PhoneNumber press 3 to create new Account"+"\n"+"Or press 4 to Exit ,press any key to continue :");
+				 try {
+				 int k=s1.nextInt();
+				 if(k==3) {
+					 set();
+					 i3=0;
+				 }else if(k==4) {
+					 i=0;
+					 i3=0;
+				 }
+				 else  {
+					 System.err.println("Invalid Input");
+					 i3=0;
+				 }
+			 }catch(Exception e) {
+				 System.err.println("Invalid Input DataType");
+				 System.out.println();
+				 s1.next();
+			 }
+				 }
+				 }
+		    }else {
+				 int i3=2;
+				 while(i3>0) {
+				 System.err.println("Wrong PassWord");
+				 System.out.print("if u forget password press 3 to create new Account"+"\n"+"Or press 4 to Exit ,press any key to continue :");
+				 try {
+				 int k=s1.nextInt();
+				 if(k==3) {
+					 set();
+					 i3=0;
+				 }else if(k==4) {
+					 i=0;
+					 i3=0;
+				 }
+				 else  {
+					 System.err.println("Invalid Input");
+					 i3=0;
+				 }
+			 }catch(Exception e) {
+				 System.err.println("Invalid Input DataType");
+				 System.out.println();
+				 s1.next();
+			 }
+				 }
+				 }
+	      }else {
+				 int i3=2;
+				 while(i3>0) {
+				 System.err.println("Wrong User Name");
+				 System.out.print("if u forget User Name press 3 to create new Account"+"\n"+"Or press 4 to Exit ,press any key to continue :");
+				 try {
+					 
+				 int k=s1.nextInt();
+				 if(k==3) {
+					 set();
+					 i3=0;
+				 }else if(k==4) {
+					 i=0;
+					 i3=0;
+				 }
+				 else  {
+					 System.err.println("Invalid Input");
+					 i3=0;
+				 }
+			 }catch(Exception e) {
+				 System.err.println("Invalid Input DataType");
+				 System.out.println();
+				 s1.next();
+			 }
+				 }
+				 }
+		 
+      }
+		 System.out.println();
+		 System.out.println("________________________________Login SuccessFully________________________________");
+		 System.out.println();
+}
+	
+		public void set() {
+			 
+			System.out.print("Enter New Name :");
+			String n1=s1.next();
+			s=n1;
+			mk[l++]=s;
+			int i=3,c1=0,c2=0,c3=0;
+			 while(i>0) {	
+			System.out.print("Enter New PassWord :");
+			String p=s1.next();
+			 for(int j=0; j<p.length(); j++) {
+					// Scanner s1=new Scanner(System.in);
+				 if(p.charAt(j)>='a'&&p.charAt(j)<='z'||p.charAt(j)>='A'&&p.charAt(j)<='Z') {
+					c1++;
+				 }
+				 else if(p.charAt(j)>='0'&&p.charAt(j)<='9') {
+					 c2++;
+				 }
+				 else{
+					 c3++;
+				 }
+				 }
+				 if(c1>0&&c2>0&&c3>0&&p.length()>=10) {
+					pass=p;
+					 mk1[r++]=pass;
+				  i=0;
+				 }else {
+					 System.err.println("Incorrect PassWord Sequence PassWord must be a Sequence of Atleast one Number,one Alphabet and one Special Character");
+				 }
+				 }
+				 int j=3;
+				 while(j>0){
+			System.out.print("Enter New Phone Number :");
+			int ph=s1.nextInt();
+			if(length(ph)==10) {
+				 p=ph;
+				 mk2[t++]=p;
+	          j=0;
+			}else {
+				System.err.println("insufficient PhoneNumber Length");
+			} 			
+				 }
+				 System.out.println();
+				 System.out.println("________________________________New Account Created SuccessFully________________________________");
+				 System.out.println();
+		}
+	
+public static void main(String[]Args) {
+   
+	projectOops ob=new projectOops();
+	GreenHotel o=new GreenHotel();
+	GmResidency o1=new GmResidency();
+	SkyHome o2=new SkyHome();
+	ITCgrandChola o3=new ITCgrandChola();
+	SaveraHotel o4=new SaveraHotel();
+	 int m=3;
+		while(m>0) {
+Scanner sc=new Scanner(System.in);
+System.out.println("--------------------Welcome to Hotel Management App----------------------");
+System.out.println();
+int f=2;
+//ob.pass=s1.next();
+System.out.println("To Login");
+while(f>0) {
+System.out.print("Enter 1 to Login"+"\n"+"Enter 2 to Create new Account :");
+try {
+int l=sc.nextInt();
+System.out.println();
+if(l==1) {
+ob.login();
+f=0;
+} 
+else if(l==2) {
+ob.ACC();
+f=0;
+}else {
+		System.err.println("Invalid Input");
+		System.out.println();
+	}
+    }catch(InputMismatchException e) {
+		System.err.println("Invalid InputDataType");
+		System.out.println();
+		sc.next();
+      	    
+	}
+}
+
+System.out.println();
+System.out.println("----------------------------------------To Select Hotel-------------------------------------------");
+System.out.println();
+int g=2;
+int k=2;
+while(g>0) {
+	int i6=2;
+	while(i6>0) {
+System.out.print("Press 1 to Visit GreenHotel"+"\n"+"Press 2 to Visit GmResidency"+"\n"+"Press 3 to Visit SkyHome"+"\n"+"Press 4 to Visit ITC grandChola"+"\n"+"Press 5 to Visit SaveraHotel :");
+
+try {
+int h= sc.nextInt();
+i6=0;
+switch(h) {
+case 1:
+	System.out.println();
+	System.out.println("--------------------Welcome to GreenHotel----------------------");
+	while(k>0) {
+		System.out.println();
+	System.out.print("Enter A to Select Ac Room and Enter N to Select non-Ac Room:");
+	char ac=sc.next().charAt(0);
+	System.out.println();
+	if(ac=='A'||ac=='a'){
+		boolean Ac=true;
+		o.rooms(Ac);
+		k=0;
+	}else if(ac=='N'||ac=='n') {
+		boolean Ac=false;
+		o.rooms(Ac);
+		k=0;
+	}
+	else {
+		System.err.println("Invalid Input");
+	}
+	}
+	o.orderFood();
+	System.out.println();
+	System.out.println("***************Leave a Comment**************");
+	o.leaveComment();
+	System.out.println("Total Bill :"+o.Total);
+	g=0;
+	break;
+case 2:
+	System.out.println();
+	System.out.println("--------------------Welcome to GmResidency----------------------");
+	while(k>0) {
+		System.out.println();
+	System.out.print("Enter A to Select Ac Room and Enter N to Select non-Ac Room:");
+	char ac1=sc.next().charAt(0);
+	System.out.println();
+	
+	if(ac1=='A'||ac1=='a'){
+		boolean Ac=true;
+		o1.rooms(Ac);
+		k=0;
+	}else if(ac1=='N'||ac1=='n') {
+		boolean Ac=false;
+		o1.rooms(Ac);
+		k=0;
+	}
+	else {
+		System.err.println("Invalid Input");
+
+	}
+	}
+	o1.orderFood();
+	System.out.println("***************Leave a Comment**************");
+	o1.leaveComment();
+	System.out.println("Total Bill :"+o1.Total);
+	g=0;
+	break;
+case 3:
+	System.out.println();
+	System.out.println("--------------------Welcome to SkyHome----------------------");
+	while(k>0) {
+	System.out.println();
+	System.out.print("Enter A to Select Ac Room and Enter N to Select non-Ac Room:");
+	char ac2=sc.next().charAt(0);
+	System.out.println();
+	
+	if(ac2=='A'||ac2=='a'){
+		boolean Ac=true;
+		o2.rooms(Ac);
+		k=0;
+	}else if(ac2=='N'||ac2=='n') {
+		boolean Ac=false;
+		o2.rooms(Ac);
+		k=0;
+	}
+	else {
+		System.err.print("Invalid Input");
+	}
+	}
+	o2.orderFood();
+	System.out.println();
+	System.out.println("***************Leave a Comment**************");
+	o2.leaveComment();
+	System.out.println("Total Bill :"+o2.Total);
+	g=0;
+	break;
+case 4:
+	System.out.println();
+	System.out.println("--------------------Welcome to ITCgrandChola----------------------");
+	while(k>0) {
+		System.out.println();
+	System.out.print("Enter A to Select Ac Room and Enter N to Select non-Ac Room:");
+	char ac3=sc.next().charAt(0);
+	System.out.println();
+	
+	if(ac3=='A'||ac3=='a'){
+		boolean Ac=true;
+		o3.rooms(Ac);
+		k=0;
+	}else if(ac3=='N'||ac3=='n') {
+		boolean Ac=false;
+		o3.rooms(Ac);
+		k=0;
+	}
+	else {
+		System.err.println("Invalid Input");
+	}
+	}
+	o3.orderFood();
+	System.out.println();
+	System.out.println("***************Leave a Comment**************");
+	o3.leaveComment();
+	System.out.println("Total Bill :"+o3.Total);
+	g=0;
+	break;
+case 5:
+	System.out.println();
+	System.out.println("--------------------Welcome to SaveraHotel----------------------");
+	while(k>0) {
+	System.out.println();
+	System.out.print("Enter A to Select Ac Room and Enter N to Select non-Ac Room:");
+	char ac4=sc.next().charAt(0);
+	System.out.println();
+	
+	if(ac4=='A'||ac4=='a'){
+		boolean Ac=true;
+		o4.rooms(Ac);
+		k=0;
+	}else if(ac4=='N'||ac4=='n') {
+		boolean Ac=false;
+		o4.rooms(Ac);
+		k=0;
+	}
+	else {
+		System.err.println("Invalid Input");
+		System.out.println();
+	}
+	}
+	o4.orderFood();
+	System.out.println();
+	System.out.println("***************Leave a Comment**************");
+	o4.leaveComment();
+	System.out.println("Total Bill :"+o4.Total);
+	g=0;
+	break;
+default:
+	System.err.println("Invalid Input");
+}
+}catch(Exception e){
+	System.err.println("Invalid InputDataType");
+	System.out.println();
+	sc.next();	
+}
+}
+}
+int u2=2;
+while(u2>0) {
+System.out.print("If you want to Exit Press 11 :");
+try {
+int k1=sc.nextInt();
+if(k1==11) {
+	m=0;
+	u2=0;
+}else {
+	u2=0;
+}
+}catch(Exception e) {
+	System.err.println("Invalid InputDataType");
+	System.out.println();
+	sc.next();	
+}
+}
+}
+}
+}
+
