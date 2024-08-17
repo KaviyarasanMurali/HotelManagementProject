@@ -1,0 +1,325 @@
+package project;
+
+import java.util.*;
+
+class GreenHotel extends HotelManagement {
+	Scanner s=new Scanner(System.in);
+    int Arr[]=new int[100];
+    int Total=0;
+    int k=0;
+    int k1=0;
+    int c3=0;
+    int ac=20000;//perDay
+    int Non_ac=10000;//perDay 
+    int h=1;
+	void rooms(Boolean Ac) {
+	if(Ac) {
+		System.out.println("--------------Now you can Book Rooms------------");
+		System.out.println();
+		System.out.print("Enter Number of Rooms to Book :");
+		int b=s.nextInt();
+		if(b!=0&&b<100){
+		Total+=b*ac;
+		c3=b;
+		
+		System.out.print("Enter Number of Days Staying in Room :");
+		int c=s.nextInt();
+		System.out.println();
+		if(c!=0) {
+			k=c;
+			k1=c;
+			Total*=c;
+			for(int i=0; i<k; i++) {
+			Arr[i++]=Total;
+						}
+			System.out.println("________________________________AC Rooms Booked SuccessFully________________________________");
+			
+		}else {
+			System.err.println("invalid Day");
+		}
+		}else {
+			System.err.println("Rooms are Full or Invalid Number of Room");
+		}
+	}else {
+		System.out.println("--------------Now you can Book Rooms------------");
+		System.out.println();
+		System.out.print("Enter Number of Rooms to Book :");
+		int b1=s.nextInt();
+		if(b1!=0&&1<100){
+		Total+=b1*ac;
+		c3=b1;
+		
+		System.out.print("Enter Number of Days Staying in Room :");
+		
+		int c1=s.nextInt();
+		System.out.println();
+		if(c1!=0) {
+			k=c1;
+			k1=c1;
+			Total*=c1;
+			for(int i=0; i<k; i++) {
+			Arr[i++]=Total;
+			}
+			System.out.println("________________________________Non-AC Rooms Booked SuccessFully________________________________");
+			
+				
+		}else {
+			System.err.println("invalid Day");
+		}
+		}else {
+			System.err.println("Rooms are Full or Invalid Number of Room");
+		} 
+	
+	}
+	}
+	
+ void orderFood() {
+	 int i=1;
+	 int k2=k1;
+	 while(c3>0) {
+		 int f=k2;
+	 while(k1>0||f>0) {
+		 System.out.println();
+		 System.out.println("_______________________________________Order Room "+h+" Foods_________________________________________");
+		 System.out.println();
+		 System.out.println("_______________________________________Order Day "+i+" Foods_________________________________________"); 
+		 System.out.println();
+		int count=4;
+		 while(count>0) {
+			 int u4=2;
+			 while(u4>0) {
+	 System.out.print("Enter M(or)m to order BreakFast"+"\n"+"Enter A(or)a to order Lunch"+"\n"+"Enter S(or)s to Snacks"+"\n"+"Enter N(or)n to order Dinner"+"\n"+"Enter E(or)e to Exit||Skip order :");
+	 
+	 String s1=s.next();
+	 System.out.println();
+	 if(s1.equals("E")||s1.equals("e")) {
+		 k1=0;
+		 count=0;
+		 u4=0;
+		 c3=0;
+		 f=0;
+	    }
+	  else {	
+		 Scanner sc1=new Scanner(System.in);
+   switch(s1){
+   case "m","M":
+	   u4=0;
+   int u3=2;
+	   int arr20[]= {30,50,40,20,80,70};
+	   //idle,dosa,vada,pongal,masala dosa,panner dosa,poori,mysoor dosa,roast,aappam
+	  while(u3>0) {
+		  int u5=2;
+	    	 while(u5>0) {
+	   System.out.print("Enter 1 to order idle Rs30"+"\n"+"Enter 2 to order Dosa Rs50"+"\n"+"Enter 3 to order Pomgal Rs40"+"\n"+"Enter 4 to order vada Rs20"+"\n"+"Enter 5 to order Masala dosa Rs80"+"\n"+"Enter 6 to order poori Rs70 :");
+	   try {
+	   int m=sc1.nextInt();
+	   u5=0;
+	   if(m==1) {
+		   Total+=arr20[0];
+		   u3=0;
+	   }
+	   else if(m==2) {
+		   Total+=arr20[1];
+		   u3=0;
+	   }else if(m==3) {
+		   Total+=arr20[2];
+		   u3=0;
+	   }else if(m==4) {
+		   Total+=arr20[3];
+		   u3=0;
+	   }else if(m==5) {
+		   Total+=arr20[4];
+		   u3=0;
+	   }else if(m==6) {
+		   Total+=arr20[5];
+		   u3=0;
+	   }
+	   else {
+		   System.err.println("Invalid BreakFast");    
+	   }
+	   System.out.println();
+	  }catch(Exception e) {
+		   	 System.err.println("Invalid InputDataType");
+				System.out.println();
+				sc1.next();
+			 
+		    }
+		 }
+	  }
+       break;
+       
+   case "a","A":
+	   u4=0;
+   int u2=2;
+	   int arr19[]= {120,250,220,240,370,170,110};
+	   //veg meals,non veg meals,chicken fried rice,panner fried rice,mixed nonveg fried rice,mushroom fried rice,chicken biryani,mutton biryani,veg biryani,pulaave 
+	   while(u2>0) {
+		   int u5=2;
+	    	 while(u5>0) {
+	   System.out.print("Enter 1 to order veg meals Rs120"+"\n"+"Enter 2 to order non-veg meals Rs250"+"\n"+"Enter 3 to order chicken fried rice Rs220"+"\n"+"Enter 4 to order chicken biryani Rs240"+"\n"+"Enter 5 to order mutton biryani Rs370"+"\n"+"Enter 6 to order panner fried rice Rs170"+"\n"+"Enter 7 to order veg biryani Rs110 :");
+     try {
+	   int a=sc1.nextInt();
+        u5=0; 
+	   if(a==1) {
+		   Total+=arr19[0];
+		   u2=0;
+	   }else if(a==2) {
+		   Total+=arr19[1];
+		   u2=0;
+	   }else if(a==3) {
+		   Total+=arr19[2];
+		   u2=0;
+	   }else if(a==4) {
+		   Total+=arr19[3];
+		   u2=0;
+	   }else if(a==5) {
+		   Total+=arr19[4];
+		   u2=0;
+	   }else if(a==6) {
+		   Total+=arr19[5];
+		   u2=0;
+	   }else if(a==7) {
+		   Total+=arr19[6];
+		   u2=0;
+	   }
+	   else {
+		   System.err.println("Invalid Lunch");    
+	   }
+     System.out.println();
+	   }catch(Exception e) {
+		   	 System.err.println("Invalid InputDataType");
+				System.out.println();
+				sc1.next();
+			 
+		    }
+		 }
+	   }
+	   break;
+   case "s","S":
+	   u4=0;
+   int u1=2;
+	   int arr18[]= {30,50,40,80,170,45,65,452,87,193};
+	   //sandwitch,potato chips,Drinks,Burger,french fries,vada paav,paani poori,bale poori,chicken puff,sweet puff,egg roll,chicken roll,egg puff,cakes,tea,coffee
+	   while(u1>0) {
+		   int u5=2;
+	    	 while(u5>0) {
+	   System.out.print("Enter 1 to order french fries Rs30"+"\n"+"Enter 2 to order chicken roll Rs50"+"\n"+"Enter 3 to order egg puff Rs40"+"\n"+"Enter 4 to order sandwitch Rs80"+"\n"+"Enter 5 to cakes Rs170"+"\n"+"Enter 6 to tea Rs45"+"\n"+"Enter 7 to order coffee Rs65"+"\n"+"Enter 8 to order Drinks Rs452"+"\n"+"Enter 9 to order Vadaa paav Rs87"+"\n"+"Enter 10 to order Biscuits Rs193 :");
+   try {
+	   int S=sc1.nextInt();
+	   u5=0;
+   if(S==1) {
+	   Total+=arr18[0];
+	   u1=0;
+   }else if(S==2) {
+	   Total+=arr18[1];
+	   u1=0;
+   }else if(S==3) {
+	   Total+=arr18[2];
+	   u1=0;
+   }else if(S==4) {
+	   Total+=arr18[3];
+	   u1=0;
+   }else if(S==5) {
+	   Total+=arr18[4];
+	   u1=0;
+   }else if(S==6) {
+	   Total+=arr18[5];
+	   u1=0;
+   }else if(S==7) {
+	   Total+=arr18[6];
+	   u1=0;
+   }else if(S==8) {
+	   Total+=arr18[7];
+	   u1=0;
+   }else if(S==9) {
+	   Total+=arr18[8];
+	   u1=0;
+   }  else if(S==10) {
+	   Total+=arr18[9];
+	   u1=0;
+   } else {
+	   System.err.println("Invalid Snack");    
+   }
+   System.out.println();
+	   }catch(Exception e) {
+		   	 System.err.println("Invalid InputDataType");
+				System.out.println();
+				sc1.next();
+			 
+		    }
+		 }
+	   }
+	   break;
+   case "n","N":
+	   u4=0;
+   int u=2;
+	   int arr17[]= {30,50,220,180,80,90,260,380};
+		 //idle,dosa,vada,masala dosa,panner dosa,poori,mysoor dosa,roast,aappam,chicken fried rice,panner fried rice,mixed nonveg fried rice,mushroom fried rice,parotta
+		while(u>0) {
+			int u5=2;
+	    	 while(u5>0) {
+	   System.out.print("Enter 1 to order idle Rs30"+"\n"+"Enter 2 to order Dosa Rs50"+"\n"+"Enter 3 to order chicken fried rice Rs220"+"\n"+"Enter 4 to order mushroom fried rice Rs180"+"\n"+"Enter 5 to order Masala dosa Rs80"+"\n"+"Enter 6 to order parotta Rs90"+"\n"+"Enter 7 to order mixed non-veg fried rice Rs260"+"\n"+"Enter 8 to order Butter-Naan Chicken TikkaMasala Rs380 :");
+	  try {
+	   int n=sc1.nextInt();
+	   u5=0;
+	   if(n==1) {
+		   Total+=arr17[0];
+		   u=0;
+	   }
+	   else if(n==2) {
+		   Total+=arr17[1];
+		   u=0;
+	   }else if(n==3) {
+		   Total+=arr17[2];
+		   u=0;
+	   }else if(n==4) {
+		   Total+=arr17[3];
+		   u=0;
+	   }else if(n==5) {
+		   Total+=arr17[4];
+		   u=0;
+	   }else if(n==6) {
+		   Total+=arr17[5];
+		   u=0;
+	   }else if(n==7) {
+		   Total+=arr17[6];
+		   u=0;
+	   }else if(n==8) {
+		   Total+=arr17[7];
+		   u=0;
+	   } else {
+		   System.err.println("Invalid Dinner");    
+	   }
+	   System.out.println();
+		}catch(Exception e) {
+		   	 System.err.println("Invalid InputDataType");
+				System.out.println();
+				sc1.next();
+			 
+		    }
+		 }
+		}
+	   break;
+   default:
+	   System.err.println("Invalid Input");
+	   count++;
+        }
+   count--;
+		 }
+	   }
+	 }
+   i++;
+   k1--;
+  f--;
+	 }
+	 i=1;
+	 c3--;
+	 h++;
+	 f--;
+} 
+}
+ void leaveComment(){
+	 String str=s.next();
+	 System.out.println("Your comment About us :"+str);
+	}
+}
